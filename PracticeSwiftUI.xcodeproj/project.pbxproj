@@ -16,6 +16,9 @@
 		8876759C2C86EF9900E3A5FC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8876759B2C86EF9900E3A5FC /* SearchView.swift */; };
 		8876759E2C86F0DB00E3A5FC /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8876759D2C86F0DB00E3A5FC /* Search.swift */; };
 		887675A02C86F69C00E3A5FC /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8876759F2C86F69C00E3A5FC /* Color+.swift */; };
+		887675A52C86FD1A00E3A5FC /* CoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887675A42C86FD1A00E3A5FC /* CoinView.swift */; };
+		887675A82C86FDAA00E3A5FC /* UpbitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887675A72C86FDAA00E3A5FC /* UpbitAPI.swift */; };
+		887675AC2C871A0E00E3A5FC /* DetailCoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887675AB2C871A0E00E3A5FC /* DetailCoinView.swift */; };
 		8893413A2C76C61900243A8E /* PracticeSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889341392C76C61900243A8E /* PracticeSwiftUIApp.swift */; };
 		8893413C2C76C61900243A8E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8893413B2C76C61900243A8E /* ContentView.swift */; };
 		8893413E2C76C61B00243A8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8893413D2C76C61B00243A8E /* Assets.xcassets */; };
@@ -34,6 +37,9 @@
 		8876759B2C86EF9900E3A5FC /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		8876759D2C86F0DB00E3A5FC /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		8876759F2C86F69C00E3A5FC /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
+		887675A42C86FD1A00E3A5FC /* CoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinView.swift; sourceTree = "<group>"; };
+		887675A72C86FDAA00E3A5FC /* UpbitAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitAPI.swift; sourceTree = "<group>"; };
+		887675AB2C871A0E00E3A5FC /* DetailCoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoinView.swift; sourceTree = "<group>"; };
 		889341362C76C61900243A8E /* PracticeSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		889341392C76C61900243A8E /* PracticeSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeSwiftUIApp.swift; sourceTree = "<group>"; };
 		8893413B2C76C61900243A8E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +81,40 @@
 			path = UserView;
 			sourceTree = "<group>";
 		};
+		887675A12C86FC7E00E3A5FC /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				8876759D2C86F0DB00E3A5FC /* Search.swift */,
+				8876759B2C86EF9900E3A5FC /* SearchView.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		887675A22C86FC8700E3A5FC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8876759F2C86F69C00E3A5FC /* Color+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		887675A32C86FD1400E3A5FC /* CoinView */ = {
+			isa = PBXGroup;
+			children = (
+				887675A42C86FD1A00E3A5FC /* CoinView.swift */,
+				887675AB2C871A0E00E3A5FC /* DetailCoinView.swift */,
+			);
+			path = CoinView;
+			sourceTree = "<group>";
+		};
+		887675A62C86FD8600E3A5FC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				887675A72C86FDAA00E3A5FC /* UpbitAPI.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		8893412D2C76C61900243A8E = {
 			isa = PBXGroup;
 			children = (
@@ -94,7 +134,10 @@
 		889341382C76C61900243A8E /* PracticeSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				8876759B2C86EF9900E3A5FC /* SearchView.swift */,
+				887675A62C86FD8600E3A5FC /* Network */,
+				887675A32C86FD1400E3A5FC /* CoinView */,
+				887675A22C86FC8700E3A5FC /* Extension */,
+				887675A12C86FC7E00E3A5FC /* SearchView */,
 				887675992C86EF8200E3A5FC /* UserView */,
 				88D00FF02C86C2F5001090C8 /* CustomView */,
 				8874122C2C85DF8900C2D507 /* Modifier */,
@@ -102,8 +145,6 @@
 				8893413B2C76C61900243A8E /* ContentView.swift */,
 				8893413D2C76C61B00243A8E /* Assets.xcassets */,
 				8893413F2C76C61B00243A8E /* Preview Content */,
-				8876759D2C86F0DB00E3A5FC /* Search.swift */,
-				8876759F2C86F69C00E3A5FC /* Color+.swift */,
 			);
 			path = PracticeSwiftUI;
 			sourceTree = "<group>";
@@ -200,9 +241,12 @@
 				88D00FEF2C86C2A4001090C8 /* ProfileImageView.swift in Sources */,
 				8874122E2C85E56F00C2D507 /* CompleteView.swift in Sources */,
 				88251AB22C7D5F0600CE2EB3 /* RadiusBackground.swift in Sources */,
+				887675AC2C871A0E00E3A5FC /* DetailCoinView.swift in Sources */,
 				887412252C85C20D00C2D507 /* SplashView.swift in Sources */,
 				8874122B2C85DF8300C2D507 /* CircleBorder.swift in Sources */,
 				8893413C2C76C61900243A8E /* ContentView.swift in Sources */,
+				887675A52C86FD1A00E3A5FC /* CoinView.swift in Sources */,
+				887675A82C86FDAA00E3A5FC /* UpbitAPI.swift in Sources */,
 				8876759E2C86F0DB00E3A5FC /* Search.swift in Sources */,
 				887675A02C86F69C00E3A5FC /* Color+.swift in Sources */,
 				887412272C85C61F00C2D507 /* CapsuleBackground.swift in Sources */,

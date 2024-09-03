@@ -39,7 +39,7 @@ struct ProfileSelectView: View {
                 Button(action: {
                     for idx in 0...11 {
                         if item == idx {
-                            isSelected[idx] = true
+                            isSelected[idx].toggle()
                         } else {
                             isSelected[idx] = false
                         }
