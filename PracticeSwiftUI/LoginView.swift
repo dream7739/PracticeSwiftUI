@@ -17,7 +17,13 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack {
-                profileImage()
+                NavigationLink {
+                    ProfileView()
+                } label: {
+                    ProfileImageView(imageName: "profile_0")
+                        .frame(width: 100, height: 100)
+
+                }
                 TextField("닉네임을 입력해주세요", text: $inputText)
                     .padding()
                 mbtiView()
@@ -38,14 +44,7 @@ struct LoginView: View {
           
         }
     }
-    
-    func profileImage() -> some View {
-        Image(.profile0)
-            .resizable()
-            .asCircleBorder()
-            .padding()
-    }
-    
+   
     func mbtiLabel() -> some View {
         Text("MBTI")
             .padding(.trailing, 30)
