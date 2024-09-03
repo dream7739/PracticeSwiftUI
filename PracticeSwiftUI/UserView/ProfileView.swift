@@ -10,18 +10,13 @@ import SwiftUI
 struct ProfileView: View {
     @State var isSelected = Array<Bool>(repeating: false, count: 12)
     
-    let data = Array(0...11).map { "profile_\($0)" }
-    let columns = [GridItem(.adaptive(minimum: 80, maximum: 80))]
-    
     var body: some View {
         NavigationView {
             VStack {
                 ProfileImageView(imageName: "profile_0")
                     .frame(width: 100, height: 100)
-                .padding(.vertical, 30)
-                
-                profileSelectView()
-                
+                    .padding(.vertical, 30)
+                ProfileSelectView(isSelected: $isSelected)
                 Spacer()
             }
             .navigationTitle("PROFILE SETTING")
@@ -30,7 +25,15 @@ struct ProfileView: View {
        
     }
     
-    func profileSelectView() -> some View {
+}
+
+struct ProfileSelectView: View {
+    @Binding var isSelected: [Bool]
+    
+    let data = Array(0...11).map { "profile_\($0)" }
+    let columns = [GridItem(.adaptive(minimum: 80, maximum: 80))]
+    
+    var body: some View {
         LazyVGrid(columns: columns, spacing: 10) {
             ForEach(0..<12) { item in
                 Button(action: {
