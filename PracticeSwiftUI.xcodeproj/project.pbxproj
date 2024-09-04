@@ -10,6 +10,10 @@
 		881AEA192C887FBA00E363E8 /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AEA182C887FBA00E363E8 /* NavigationLazyView.swift */; };
 		881AEA1C2C88831300E363E8 /* NavigationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AEA1B2C88831300E363E8 /* NavigationWrapper.swift */; };
 		881AEA1E2C8884CF00E363E8 /* NavigationBarWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AEA1D2C8884CF00E363E8 /* NavigationBarWrapper.swift */; };
+		881AEA212C88894200E363E8 /* PosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AEA202C88894200E363E8 /* PosterView.swift */; };
+		881AEA232C888CB700E363E8 /* RandomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AEA222C888CB700E363E8 /* RandomImageView.swift */; };
+		881AEA252C888CF700E363E8 /* HorizontalSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AEA242C888CF700E363E8 /* HorizontalSectionView.swift */; };
+		881AEA272C88968B00E363E8 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AEA262C88968B00E363E8 /* ImageDetailView.swift */; };
 		88251AB22C7D5F0600CE2EB3 /* RadiusBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88251AB12C7D5F0600CE2EB3 /* RadiusBackground.swift */; };
 		887412252C85C20D00C2D507 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887412242C85C20D00C2D507 /* SplashView.swift */; };
 		887412272C85C61F00C2D507 /* CapsuleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887412262C85C61F00C2D507 /* CapsuleBackground.swift */; };
@@ -34,6 +38,10 @@
 		881AEA182C887FBA00E363E8 /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
 		881AEA1B2C88831300E363E8 /* NavigationWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationWrapper.swift; sourceTree = "<group>"; };
 		881AEA1D2C8884CF00E363E8 /* NavigationBarWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWrapper.swift; sourceTree = "<group>"; };
+		881AEA202C88894200E363E8 /* PosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterView.swift; sourceTree = "<group>"; };
+		881AEA222C888CB700E363E8 /* RandomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImageView.swift; sourceTree = "<group>"; };
+		881AEA242C888CF700E363E8 /* HorizontalSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSectionView.swift; sourceTree = "<group>"; };
+		881AEA262C88968B00E363E8 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
 		88251AB12C7D5F0600CE2EB3 /* RadiusBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiusBackground.swift; sourceTree = "<group>"; };
 		887412242C85C20D00C2D507 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		887412262C85C61F00C2D507 /* CapsuleBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleBackground.swift; sourceTree = "<group>"; };
@@ -74,6 +82,17 @@
 				881AEA1D2C8884CF00E363E8 /* NavigationBarWrapper.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		881AEA1F2C88892500E363E8 /* RandomImage */ = {
+			isa = PBXGroup;
+			children = (
+				881AEA202C88894200E363E8 /* PosterView.swift */,
+				881AEA222C888CB700E363E8 /* RandomImageView.swift */,
+				881AEA242C888CF700E363E8 /* HorizontalSectionView.swift */,
+				881AEA262C88968B00E363E8 /* ImageDetailView.swift */,
+			);
+			path = RandomImage;
 			sourceTree = "<group>";
 		};
 		8874122C2C85DF8900C2D507 /* Modifier */ = {
@@ -150,6 +169,7 @@
 		889341382C76C61900243A8E /* PracticeSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				881AEA1F2C88892500E363E8 /* RandomImage */,
 				881AEA1A2C88830600E363E8 /* Common */,
 				887675A62C86FD8600E3A5FC /* Network */,
 				887675A32C86FD1400E3A5FC /* CoinView */,
@@ -261,12 +281,16 @@
 				88251AB22C7D5F0600CE2EB3 /* RadiusBackground.swift in Sources */,
 				887675AC2C871A0E00E3A5FC /* DetailCoinView.swift in Sources */,
 				887412252C85C20D00C2D507 /* SplashView.swift in Sources */,
+				881AEA272C88968B00E363E8 /* ImageDetailView.swift in Sources */,
 				881AEA1C2C88831300E363E8 /* NavigationWrapper.swift in Sources */,
 				8874122B2C85DF8300C2D507 /* CircleBorder.swift in Sources */,
 				8893413C2C76C61900243A8E /* ContentView.swift in Sources */,
 				887675A52C86FD1A00E3A5FC /* CoinView.swift in Sources */,
 				881AEA1E2C8884CF00E363E8 /* NavigationBarWrapper.swift in Sources */,
+				881AEA252C888CF700E363E8 /* HorizontalSectionView.swift in Sources */,
+				881AEA232C888CB700E363E8 /* RandomImageView.swift in Sources */,
 				887675A82C86FDAA00E3A5FC /* UpbitAPI.swift in Sources */,
+				881AEA212C88894200E363E8 /* PosterView.swift in Sources */,
 				8876759E2C86F0DB00E3A5FC /* Search.swift in Sources */,
 				887675A02C86F69C00E3A5FC /* Color+.swift in Sources */,
 				887412272C85C61F00C2D507 /* CapsuleBackground.swift in Sources */,
