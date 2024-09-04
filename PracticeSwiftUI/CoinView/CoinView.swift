@@ -12,12 +12,8 @@ struct CoinView: View {
     @State private var randomMarket = ""
     @State private var searchText = ""
     
-    var filteredList: Markets {
-        return searchText.isEmpty ? marketList: marketList.filter({ $0.koreanName.contains(searchText) })
-    }
-    
     var body: some View {
-        NavigationView {
+        NavigationWrapper {
             ScrollView {
                 bannerView()
                 listView()
@@ -29,7 +25,16 @@ struct CoinView: View {
                 }
             }
             .searchable(text: $searchText, placement: .navigationBarDrawer, prompt: "검색어를 입력하세요")
+            .onSubmit(of: .search){
+                marketList = searchText.isEmpty ? marketList: marketList.filter { $0.koreanName.contains(searchText) }
+            }
             .navigationTitle("My Money")
+            .navigationBar {
+                Image(systemName: "heart.fill")
+            } trailing: {
+                Image(systemName: "heart")
+            }
+
         }.task {
             UpbitAPI.fetchAllMarket { data in
                 marketList = data
@@ -64,37 +69,44 @@ struct CoinView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(40)
             .foregroundStyle(.white)
-            
         }
-        
     }
-    
-    func rowView(_ item: Market) -> some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text("\(item.koreanName)")
-                    .bold()
-                Text("\(item.market)")
-            }
-            Spacer()
-            Text("\(item.englishName)")
-        }
-        .padding(.horizontal, 20)
-        .padding(.vertical, 6)
-    }
-    
+ 
     func listView() -> some View {
         LazyVStack {
-            ForEach(filteredList, id: \.self) { item in
+            ForEach($marketList, id: \.self) { $item in
                 NavigationLink {
-                    DetailCoinView(coinName: item.koreanName)
+                    NavigationLazyView(DetailCoinView(coinName: item.koreanName))
                 } label: {
-                    rowView(item)
-                        .foregroundStyle(.black)
-                }
+                    RowView(item: $item)
+                }.buttonStyle(PlainButtonStyle())
 
             }
         }
+    }
+}
+
+struct RowView: View {
+    @Binding var item: Market
+    
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                Text(item.koreanName)
+                    .bold()
+                Text(item.market)
+            }
+            Spacer()
+            Text(item.englishName)
+            Button(action: {
+                item.like.toggle()
+            }, label: {
+                Image(systemName: item.like ? "star.fill" : "star")
+                    .foregroundStyle(.gray)
+            })
+        }
+        .padding(.horizontal, 20)
+        .padding(.vertical, 6)
     }
 }
 

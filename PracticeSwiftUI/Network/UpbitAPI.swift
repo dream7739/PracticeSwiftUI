@@ -9,7 +9,8 @@ import Foundation
 
 struct Market: Hashable, Codable {
     let market, koreanName, englishName: String
-
+    var like = false
+    
     enum CodingKeys: String, CodingKey {
         case market
         case koreanName = "korean_name"

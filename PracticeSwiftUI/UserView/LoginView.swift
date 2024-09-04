@@ -15,36 +15,34 @@ struct LoginView: View {
     
     
     var body: some View {
-        NavigationView {
-            VStack {
-                NavigationLink {
-                    ProfileView()
-                } label: {
-                    ProfileImageView(imageName: "profile_0")
-                        .frame(width: 100, height: 100)
-
-                }
-                TextField("닉네임을 입력해주세요", text: $inputText)
-                    .padding()
-                mbtiView()
-                Spacer()
-                Button(action: {
-                    isPresented = true
-                }, label: {
-                    Text("확인") 
-                        .asRadiusBackground()
-                })
+        VStack {
+            NavigationLink {
+                ProfileView()
+            } label: {
+                ProfileImageView(imageName: "profile_0")
+                    .frame(width: 100, height: 100)
+                
             }
-
-            .navigationTitle("PROFILE SETTING")
-            .navigationBarTitleDisplayMode(.inline)
-            .sheet(isPresented: $isPresented, content: {
-                CompleteView()
+            TextField("닉네임을 입력해주세요", text: $inputText)
+                .padding()
+            mbtiView()
+            Spacer()
+            Button(action: {
+                isPresented = true
+            }, label: {
+                Text("확인")
+                    .asRadiusBackground()
             })
-          
         }
+        
+        .navigationTitle("PROFILE SETTING")
+        .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $isPresented, content: {
+            CompleteView()
+        })
+        
     }
-   
+    
     func mbtiLabel() -> some View {
         Text("MBTI")
             .padding(.trailing, 30)

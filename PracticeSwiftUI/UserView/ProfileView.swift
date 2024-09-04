@@ -11,18 +11,16 @@ struct ProfileView: View {
     @State var isSelected = Array<Bool>(repeating: false, count: 12)
     
     var body: some View {
-        NavigationView {
-            VStack {
-                ProfileImageView(imageName: "profile_0")
-                    .frame(width: 100, height: 100)
-                    .padding(.vertical, 30)
-                ProfileSelectView(isSelected: $isSelected)
-                Spacer()
-            }
-            .navigationTitle("PROFILE SETTING")
-            .navigationBarTitleDisplayMode(.inline)
+        VStack {
+            ProfileImageView(imageName: "profile_0")
+                .frame(width: 100, height: 100)
+                .padding(.vertical, 30)
+            ProfileSelectView(isSelected: $isSelected)
+            Spacer()
         }
-       
+        .navigationTitle("PROFILE SETTING")
+        .navigationBarTitleDisplayMode(.inline)
+        
     }
     
 }
@@ -47,7 +45,7 @@ struct ProfileSelectView: View {
                 }, label: {
                     ProfileImageView(imageName: data[item],
                                      borderColor: isSelected[item] ? .blue : .gray)
-                        .frame(width: 80, height: 80)
+                    .frame(width: 80, height: 80)
                 })
             }
         }
