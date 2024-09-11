@@ -208,6 +208,7 @@
 		8893412D2C76C61900243A8E = {
 			isa = PBXGroup;
 			children = (
+				8874A1702C91D11400BF3987 /* .gitignore */,
 				889341382C76C61900243A8E /* PracticeSwiftUI */,
 				889341372C76C61900243A8E /* Products */,
 			);
@@ -239,7 +240,6 @@
 				8893413B2C76C61900243A8E /* ContentView.swift */,
 				8893413D2C76C61B00243A8E /* Assets.xcassets */,
 				8893413F2C76C61B00243A8E /* Preview Content */,
-				8874A1702C91D11400BF3987 /* .gitignore */,
 			);
 			path = PracticeSwiftUI;
 			sourceTree = "<group>";
