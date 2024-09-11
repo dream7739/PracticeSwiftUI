@@ -22,6 +22,10 @@
 		887412292C85DD0200C2D507 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887412282C85DD0200C2D507 /* LoginView.swift */; };
 		8874122B2C85DF8300C2D507 /* CircleBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874122A2C85DF8300C2D507 /* CircleBorder.swift */; };
 		8874122E2C85E56F00C2D507 /* CompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874122D2C85E56F00C2D507 /* CompleteView.swift */; };
+		8874A1682C91C89D00BF3987 /* AysncPracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874A1672C91C89D00BF3987 /* AysncPracticeView.swift */; };
+		8874A16C2C91C8BA00BF3987 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874A16B2C91C8BA00BF3987 /* APIManager.swift */; };
+		8874A16F2C91C97F00BF3987 /* AsyncPractiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874A16E2C91C97F00BF3987 /* AsyncPractiveViewModel.swift */; };
+		8874A1712C91D11400BF3987 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8874A1702C91D11400BF3987 /* .gitignore */; };
 		8876759C2C86EF9900E3A5FC /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8876759B2C86EF9900E3A5FC /* SearchView.swift */; };
 		8876759E2C86F0DB00E3A5FC /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8876759D2C86F0DB00E3A5FC /* Search.swift */; };
 		887675A02C86F69C00E3A5FC /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8876759F2C86F69C00E3A5FC /* Color+.swift */; };
@@ -52,6 +56,10 @@
 		887412282C85DD0200C2D507 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		8874122A2C85DF8300C2D507 /* CircleBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleBorder.swift; sourceTree = "<group>"; };
 		8874122D2C85E56F00C2D507 /* CompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteView.swift; sourceTree = "<group>"; };
+		8874A1672C91C89D00BF3987 /* AysncPracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AysncPracticeView.swift; sourceTree = "<group>"; };
+		8874A16B2C91C8BA00BF3987 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		8874A16E2C91C97F00BF3987 /* AsyncPractiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncPractiveViewModel.swift; sourceTree = "<group>"; };
+		8874A1702C91D11400BF3987 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		8876759B2C86EF9900E3A5FC /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		8876759D2C86F0DB00E3A5FC /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		8876759F2C86F69C00E3A5FC /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
@@ -118,6 +126,40 @@
 			path = Modifier;
 			sourceTree = "<group>";
 		};
+		8874A1662C91C88C00BF3987 /* ReleasePractice */ = {
+			isa = PBXGroup;
+			children = (
+				8874A16D2C91C97700BF3987 /* ViewModel */,
+				8874A16A2C91C8AB00BF3987 /* View */,
+				8874A1692C91C8A600BF3987 /* Network */,
+			);
+			path = ReleasePractice;
+			sourceTree = "<group>";
+		};
+		8874A1692C91C8A600BF3987 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8874A16B2C91C8BA00BF3987 /* APIManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8874A16A2C91C8AB00BF3987 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8874A1672C91C89D00BF3987 /* AysncPracticeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8874A16D2C91C97700BF3987 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8874A16E2C91C97F00BF3987 /* AsyncPractiveViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		887675992C86EF8200E3A5FC /* UserView */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +224,7 @@
 		889341382C76C61900243A8E /* PracticeSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				8874A1662C91C88C00BF3987 /* ReleasePractice */,
 				881AEA282C88A1CD00E363E8 /* CategoryView */,
 				881AEA1F2C88892500E363E8 /* RandomImageView */,
 				881AEA1A2C88830600E363E8 /* Common */,
@@ -196,6 +239,7 @@
 				8893413B2C76C61900243A8E /* ContentView.swift */,
 				8893413D2C76C61B00243A8E /* Assets.xcassets */,
 				8893413F2C76C61B00243A8E /* Preview Content */,
+				8874A1702C91D11400BF3987 /* .gitignore */,
 			);
 			path = PracticeSwiftUI;
 			sourceTree = "<group>";
@@ -275,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				889341412C76C61B00243A8E /* Preview Assets.xcassets in Resources */,
+				8874A1712C91D11400BF3987 /* .gitignore in Resources */,
 				8893413E2C76C61B00243A8E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,9 +334,11 @@
 				8876759C2C86EF9900E3A5FC /* SearchView.swift in Sources */,
 				887412292C85DD0200C2D507 /* LoginView.swift in Sources */,
 				881AEA192C887FBA00E363E8 /* NavigationLazyView.swift in Sources */,
+				8874A16C2C91C8BA00BF3987 /* APIManager.swift in Sources */,
 				88D00FE32C86A61E001090C8 /* ProfileView.swift in Sources */,
 				88D00FEF2C86C2A4001090C8 /* ProfileImageView.swift in Sources */,
 				8874122E2C85E56F00C2D507 /* CompleteView.swift in Sources */,
+				8874A1682C91C89D00BF3987 /* AysncPracticeView.swift in Sources */,
 				88251AB22C7D5F0600CE2EB3 /* RadiusBackground.swift in Sources */,
 				887675AC2C871A0E00E3A5FC /* DetailCoinView.swift in Sources */,
 				887412252C85C20D00C2D507 /* SplashView.swift in Sources */,
@@ -303,6 +350,7 @@
 				881AEA2A2C88A2C400E363E8 /* CategoryView.swift in Sources */,
 				881AEA1E2C8884CF00E363E8 /* NavigationBarWrapper.swift in Sources */,
 				884C89422C88A99D000B2801 /* Category.swift in Sources */,
+				8874A16F2C91C97F00BF3987 /* AsyncPractiveViewModel.swift in Sources */,
 				881AEA252C888CF700E363E8 /* HorizontalSectionView.swift in Sources */,
 				881AEA232C888CB700E363E8 /* RandomImageView.swift in Sources */,
 				887675A82C86FDAA00E3A5FC /* UpbitAPI.swift in Sources */,
