@@ -26,32 +26,44 @@ protocol PracticeViewModel: AnyObject {
 
 //변화를 감지할 수 있도록 ObservableObject
 final class AsyncPractiveViewModel: PracticeViewModel, ObservableObject {
+    @Published var searchText = ""
     
     struct Input {
         //<Output, Failure>
-        var viewOnTask = PassthroughSubject<Void, Never>()
+        var callSearch = PassthroughSubject<Void, Never>()
         
     }
     
     struct Output {
-        
+        var bookList: [Book] = []
     }
     
     var cancellables = Set<AnyCancellable>()
     var input = Input()
     @Published var output = Output()
     
-    
-    
     init() {
         transform()
     }
     
     func transform() {
-        input.viewOnTask
-            .sink { _ in
-                print("안녕하세용")
+        input.callSearch
+            .sink { [weak self] _ in
+                self?.callRequest()
             }
             .store(in: &cancellables)
+    }
+        
+    
+    func callRequest() {
+        Task {
+            do {
+                let result = try await APIManager.fetchBooks(request: BookRequest(query: searchText))
+                output.bookList = result.items
+            }
+            catch {
+                print(error)
+            }
+        }
     }
 }

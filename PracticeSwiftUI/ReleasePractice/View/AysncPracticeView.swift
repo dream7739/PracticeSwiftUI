@@ -15,15 +15,47 @@ struct AysncPracticeView: View {
     @ObservedObject private var viewModel = AsyncPractiveViewModel()
     
     var body: some View {
-        VStack {
-            Rectangle()
-                .fill(.blue)
-                .padding(10)
-            Text("Hello, World!")
+        NavigationView {
+            verticalScrollView()
+                .navigationTitle("검색")
         }
-        .task {
-            viewModel.input.viewOnTask.send(())
+        .searchable(
+            text: $viewModel.searchText,
+            placement: .navigationBarDrawer,
+            prompt: "책 제목을 검색해보세요"
+        )
+        .onSubmit(of: .search) {
+            viewModel.input.callSearch.send(())
         }
+        
+    }
+    
+    func verticalScrollView() -> some View {
+        ScrollView(.vertical) {
+            LazyVStack {
+                ForEach(viewModel.output.bookList, id: \.self) { item in
+                    SearchRowView(book: item)
+                }
+            }
+        }
+    }
+}
+
+//검색결과가 나오는 뷰
+struct SearchRowView: View {
+    var book: Book
+    
+    var body: some View {
+        HStack(alignment: .top) {
+            BookCoverImage(url: book.image)
+            VStack(alignment: .leading) {
+                Text(book.title)
+                Text(book.author)
+                    .font(.callout)
+            }
+            Spacer()
+        }
+        .padding()
     }
 }
 
