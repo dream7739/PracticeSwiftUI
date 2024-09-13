@@ -8,7 +8,7 @@
 import Foundation
 
 struct BookRequest {
-    let query: String
-    let start = 1
+    var query: String
+    var start = 1
     let display = 30
 }

@@ -6,25 +6,26 @@
 //
 
 import Foundation
-
+import Combine
 
 struct APIManager {
     private init() { }
     
     enum APIError: Error {
-        case invalidURL
         case invalidStatus
         case failDecoding
-    }   
-    static func fetchBooks(request: BookRequest) async throws -> BookResponse {
-        var component = URLComponents(string: APIURL.naver)
+        case unknown
+    }
+    
+    static func fetchBooks(request: BookRequest) -> AnyPublisher<BookResponse, Error> {
+        var component = URLComponents(string: APIURL.naver)!
         let query = URLQueryItem(name: "query", value: request.query)
         let start = URLQueryItem(name: "start", value: "\(request.start)")
         let display = URLQueryItem(name: "display", value: "\(request.display)")
         
-        component?.queryItems = [query, start, display]
+        component.queryItems = [query, start, display]
         
-        guard let url = component?.url else { throw APIError.invalidURL }
+        let url = component.url!
         
         var urlRequest = URLRequest(url: url)
         urlRequest.allHTTPHeaderFields = [
@@ -32,17 +33,26 @@ struct APIManager {
             "X-Naver-Client-Secret": APIKey.clientSecret
         ]
         
+        return URLSession.DataTaskPublisher(request: urlRequest, session: .shared)
+            .tryMap { data, response in
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    throw APIError.invalidStatus
+                }
+                
+                guard let decodedData = try? JSONDecoder().decode(BookResponse.self, from: data) else {
+                    throw APIError.failDecoding
+                }
+                
+                return decodedData
+            }
+            .mapError { error in
+                if let error = error as? APIError {
+                    return error
+                } else {
+                    return APIError.unknown
+                }
+            }
+            .eraseToAnyPublisher()
         
-        let (data, response) = try await URLSession.shared.data(for: urlRequest)
-        
-        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            throw APIError.invalidStatus
-        }
-        
-        guard let decodedData = try? JSONDecoder().decode(BookResponse.self, from: data) else {
-            throw APIError.failDecoding
-        }
-        
-        return decodedData
     }
 }

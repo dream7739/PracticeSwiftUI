@@ -17,6 +17,8 @@
 		881AEA2A2C88A2C400E363E8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881AEA292C88A2C400E363E8 /* CategoryView.swift */; };
 		88251AB22C7D5F0600CE2EB3 /* RadiusBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88251AB12C7D5F0600CE2EB3 /* RadiusBackground.swift */; };
 		88388FD92C93072C00BA83CA /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88388FD82C93072C00BA83CA /* CarouselView.swift */; };
+		883CE0A42C93FF95009FE82A /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CE0A32C93FF95009FE82A /* SearchBarView.swift */; };
+		883CE0A72C940346009FE82A /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CE0A62C940346009FE82A /* UIApplication+.swift */; };
 		884C89422C88A99D000B2801 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884C89412C88A99D000B2801 /* Category.swift */; };
 		887412252C85C20D00C2D507 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887412242C85C20D00C2D507 /* SplashView.swift */; };
 		887412272C85C61F00C2D507 /* CapsuleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887412262C85C61F00C2D507 /* CapsuleBackground.swift */; };
@@ -58,6 +60,8 @@
 		881AEA292C88A2C400E363E8 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		88251AB12C7D5F0600CE2EB3 /* RadiusBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiusBackground.swift; sourceTree = "<group>"; };
 		88388FD82C93072C00BA83CA /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		883CE0A32C93FF95009FE82A /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		883CE0A62C940346009FE82A /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		884C89412C88A99D000B2801 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		887412242C85C20D00C2D507 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		887412262C85C61F00C2D507 /* CapsuleBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleBackground.swift; sourceTree = "<group>"; };
@@ -130,6 +134,14 @@
 			path = CategoryView;
 			sourceTree = "<group>";
 		};
+		883CE0A52C94031E009FE82A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				883CE0A62C940346009FE82A /* UIApplication+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		8874122C2C85DF8900C2D507 /* Modifier */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +155,7 @@
 		8874A1662C91C88C00BF3987 /* ReleasePractice */ = {
 			isa = PBXGroup;
 			children = (
+				883CE0A52C94031E009FE82A /* Extension */,
 				8874A1792C91D81200BF3987 /* CustomView */,
 				8874A1742C91D32700BF3987 /* Model */,
 				8874A16D2C91C97700BF3987 /* ViewModel */,
@@ -192,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				8874A17A2C91D82100BF3987 /* BookCoverImage.swift */,
+				883CE0A32C93FF95009FE82A /* SearchBarView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -396,8 +410,10 @@
 				88388FD92C93072C00BA83CA /* CarouselView.swift in Sources */,
 				881AEA232C888CB700E363E8 /* RandomImageView.swift in Sources */,
 				8874A1782C91D36700BF3987 /* BookResponse.swift in Sources */,
+				883CE0A42C93FF95009FE82A /* SearchBarView.swift in Sources */,
 				887675A82C86FDAA00E3A5FC /* UpbitAPI.swift in Sources */,
 				881AEA212C88894200E363E8 /* PosterView.swift in Sources */,
+				883CE0A72C940346009FE82A /* UIApplication+.swift in Sources */,
 				8876759E2C86F0DB00E3A5FC /* Search.swift in Sources */,
 				8874A17B2C91D82100BF3987 /* BookCoverImage.swift in Sources */,
 				887675A02C86F69C00E3A5FC /* Color+.swift in Sources */,

@@ -28,6 +28,9 @@ protocol PracticeViewModel: AnyObject {
 final class AsyncPractiveViewModel: PracticeViewModel, ObservableObject {
     @Published var searchText = ""
     
+    var bookRequest = BookRequest(query: "")
+    var bookResponse = BookResponse(total: 0, start: 0, display: 0, items: [])
+    
     struct Input {
         //<Output, Failure>
         var callSearch = PassthroughSubject<Void, Never>()
@@ -53,17 +56,56 @@ final class AsyncPractiveViewModel: PracticeViewModel, ObservableObject {
             }
             .store(in: &cancellables)
     }
-        
+    
     
     func callRequest() {
-        Task {
-            do {
-                let result = try await APIManager.fetchBooks(request: BookRequest(query: searchText))
-                output.bookList = result.items
+        print(#function, searchText)
+        
+        let text = searchText.trimmingCharacters(in: .whitespaces).lowercased()
+        if text.isEmpty || text == bookRequest.query { return }
+        
+        bookRequest.start = 1
+        bookRequest.query = text
+        
+        APIManager.fetchBooks(request: bookRequest)
+            .sink { result in
+                switch result {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error)
+                }
+            } receiveValue: { [weak self] data in
+                self?.bookResponse = data
+                self?.output.bookList = data.items
             }
-            catch {
-                print(error)
-            }
-        }
+            .store(in: &cancellables)
     }
+    
+    func callRequestMore() {
+        print(#function, bookRequest.query)
+        
+        bookRequest.start += 1
+        
+        APIManager.fetchBooks(request: bookRequest)
+            .sink { result in
+                switch result {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error)
+                }
+            } receiveValue: { [weak self] data in
+                self?.bookResponse = data
+                self?.output.bookList.append(contentsOf: data.items)
+            }
+            .store(in: &cancellables)
+    }
+    
+    var isPaginationRequired: Bool {
+        let pageCnt = 30
+        let afterPageCnt = output.bookList.count + pageCnt
+        return bookResponse.total >= afterPageCnt ? true : false
+    }
+    
 }

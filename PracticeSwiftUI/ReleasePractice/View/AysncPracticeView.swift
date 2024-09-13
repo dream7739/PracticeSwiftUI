@@ -21,7 +21,7 @@ struct AysncPracticeView: View {
         }
         .searchable(
             text: $viewModel.searchText,
-            placement: .navigationBarDrawer,
+            placement: .navigationBarDrawer(displayMode: .always),
             prompt: "책 제목을 검색해보세요"
         )
         .onSubmit(of: .search) {
@@ -33,8 +33,15 @@ struct AysncPracticeView: View {
     func verticalScrollView() -> some View {
         ScrollView(.vertical) {
             LazyVStack {
-                ForEach(viewModel.output.bookList, id: \.self) { item in
+                ForEach(Array(zip(viewModel.output.bookList.indices, viewModel.output.bookList)), id: \.0) { index, item in
                     SearchRowView(book: item)
+                        .onAppear {
+                            if index == viewModel.output.bookList.count - 4 {
+                                if viewModel.isPaginationRequired {
+                                    viewModel.callRequestMore()
+                                }
+                            }
+                        }
                 }
             }
         }
