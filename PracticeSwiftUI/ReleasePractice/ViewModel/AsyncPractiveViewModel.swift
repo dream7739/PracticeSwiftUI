@@ -51,12 +51,14 @@ final class AsyncPractiveViewModel: PracticeViewModel, ObservableObject {
     
     func transform() {
         input.callSearch
-            .sink { [weak self] _ in
+            .combineLatest($searchText)
+            .map { value in return value}
+            .sink { [weak self] value in
+                print(value)
                 self?.callRequest()
             }
             .store(in: &cancellables)
     }
-    
     
     func callRequest() {
         print(#function, searchText)
@@ -108,4 +110,66 @@ final class AsyncPractiveViewModel: PracticeViewModel, ObservableObject {
         return bookResponse.total >= afterPageCnt ? true : false
     }
     
+}
+
+extension AsyncPractiveViewModel {
+    func just() {
+        let publisher = Just("홍복치")
+        
+        publisher
+            .sink(receiveCompletion: { result in
+                print(result)
+            }, receiveValue: { value in
+                print(value)
+            })
+            .store(in: &cancellables)
+    }
+    
+    func future() {
+        let future = Future<String, Error> { promise in
+            promise(.success("홍복치 완료!"))
+            promise(.failure(NSError(domain: "홍복치 에러", code: 404, userInfo: nil)))
+        }
+        
+        future
+            .sink { result in
+                switch result {
+                case .finished:
+                    print(result)
+                case .failure(let error):
+                    print(error)
+                }
+            } receiveValue: { value in
+                print(value)
+            }
+            .store(in: &cancellables)
+        
+    }
+    
+    func differed() {
+        struct CustomPublisher: Publisher {
+            typealias Output = String
+            typealias Failure = Never
+            
+            func receive<S>(subscriber: S) where S: Subscriber, Never == S.Failure, String == S.Input {
+                subscriber.receive("나는 커스텀한 퍼블리셔야")
+                subscriber.receive(completion: .finished)
+            }
+        }
+        
+        
+        let differed = Deferred {
+            return CustomPublisher()
+        }
+        
+        differed.sink { result in
+            switch result {
+            case .finished:
+                print(result)
+            }
+        } receiveValue: { value in
+            print(value)
+        }
+        .store(in: &cancellables)
+    }
 }
